@@ -6,3 +6,7 @@
 *.pidb
 *.resources
 test-results/
+
+#Builds
+bin/
+obj/
