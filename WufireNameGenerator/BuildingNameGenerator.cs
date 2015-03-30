@@ -24,13 +24,15 @@ namespace WufireNameGenerator
 			bnd = new BuildingNameData();
 		}
 		public static string GenerateName(ItemClass.SubService subservice, Randomizer randomizer) {
-			List<List<string>> nameParts = bnd.BuildingNameDataForSubService(subservice);
+			List<NamePart> nameParts = bnd.BuildingNameDataForSubService(subservice);
 			string nameString = "";
-			for(int i = 0; i < nameParts.Count; i++) {
-				nameString += nameParts[i][randomizer.Int32((uint)nameParts[i].Count)];
-				if (i != nameParts.Count - 1) {
-					nameString += " ";
+			foreach(NamePart part in nameParts) {
+				if(part.isOptional) {
+					if (randomizer.Int32(10) > 5) {
+						continue;
+					}
 				}
+				nameString += part.nameList[randomizer.Int32((uint)part.nameList.Count)] + " ";
 			}
 			return nameString;
 		}

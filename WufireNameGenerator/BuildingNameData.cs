@@ -11,6 +11,7 @@ using System;
 using System.Reflection;
 using ICities;
 using System.IO;
+using System.Collections;
 using System.Collections.Generic;
 using ColossalFramework.IO;
 using UnityEngine;
@@ -18,11 +19,12 @@ namespace WufireNameGenerator
 {
 	public class BuildingNameData
 	{
-		private Dictionary<ItemClass.SubService, List<List<string>>> buildingNames;
+		private Dictionary<string, List<NamePart>> buildingNames;
 		public BuildingNameData ()
 		{
 			DebugOutputPanel.AddMessage(ColossalFramework.Plugins.PluginManager.MessageType.Message, "Set up building name data");
 			_readNamesFromFile();
+			DebugOutputPanel.AddMessage(ColossalFramework.Plugins.PluginManager.MessageType.Message, "buildingNames dictionary size: " + buildingNames.Count);
 		}
 
 		private void _readNamesFromFile() {
@@ -44,57 +46,87 @@ namespace WufireNameGenerator
 				}
 			}
 
+			buildingNames = new Dictionary<string, List<NamePart>>();
 			DebugOutputPanel.AddMessage(ColossalFramework.Plugins.PluginManager.MessageType.Message, "Reading from file");
-			Dictionary<string, List<Dictionary<string,object>>> obj 
-				= ColossalFramework.HTTP.JSON.JsonDecode(System.IO.File.ReadAllText(WufireNameGenerator.BusinessNameFile)) 
-					as Dictionary<string, List<Dictionary<string,object>>>;
-			foreach(string subServiceKey in obj.Keys) {
-				List<Dictionary<string,object>> subObj = obj[subServiceKey] as List<Dictionary<string,object>>;
-				// ie obj[CommercialLow]
 
-				foreach(Dictionary<string,object> d in subObj) {
+			string fileText = System.IO.File.ReadAllText(WufireNameGenerator.BusinessNameFile);
+			object obj = ColossalFramework.HTTP.JSON.JsonDecode(fileText);
+
+			if (obj != null) {
+				DebugOutputPanel.AddMessage(ColossalFramework.Plugins.PluginManager.MessageType.Message, "obj not null");
+			}
+			Hashtable dictionary = (Hashtable) obj;
+
+			DebugOutputPanel.AddMessage(ColossalFramework.Plugins.PluginManager.MessageType.Message, "dictionary size? " + dictionary.Count);
+
+			foreach(string subServiceKey in dictionary.Keys) {
+				DebugOutputPanel.AddMessage(ColossalFramework.Plugins.PluginManager.MessageType.Message, "Got subServiceKey: " + subServiceKey);
+				ArrayList subObj = (ArrayList)dictionary[subServiceKey];
+				// ie obj[CommercialLow]
+				List<NamePart> newPartList = new List<NamePart>();
+				foreach(Hashtable d in subObj) {
+					DebugOutputPanel.AddMessage(ColossalFramework.Plugins.PluginManager.MessageType.Message, "Got NamePart");
 					NamePart n = new NamePart(d);
+					newPartList.Add(n);
 				}
+				buildingNames.Add(subServiceKey, newPartList);
 			}
 		}
 
-		public List<List<string>> BuildingNameDataForSubService(ItemClass.SubService requestSubService) {
-			if (buildingNames.ContainsKey(requestSubService)) {
-				return buildingNames[requestSubService];
+		public List<NamePart> BuildingNameDataForSubService(ItemClass.SubService requestSubService) {
+			if (buildingNames.ContainsKey(requestSubService.ToString())) {
+				return buildingNames[requestSubService.ToString()];
 			}
 			return null;
 		}
+	}
+	public class NamePart {
+		public bool isOptional;
+		public List<string> nameList;
 
-		private class NamePart {
-			bool isOptional;
-			List<string> nameList;
-			public NamePart(Dictionary<string, object> obj) {
-				if (obj.ContainsKey("optional")) {
-					isOptional = (bool) obj["optional"];
-				} else {
-					isOptional = false;
-				}
-
-				if(obj.ContainsKey("nameList")) {
-					nameList = obj["nameList"] as List<string>;
+		public NamePart(Hashtable ht) {
+			DebugOutputPanel.AddMessage(ColossalFramework.Plugins.PluginManager.MessageType.Message, "New NamePart");
+			if (ht.ContainsKey("optional")) {
+				isOptional = (bool) ht["optional"];
+			} else {
+				isOptional = false;
+			}
+			if (ht.ContainsKey("nameList")) {
+				ArrayList arrayList = (ArrayList)ht["nameList"];
+				nameList = new List<string>(arrayList.Count);
+				foreach (string instance in arrayList)
+				{
+					nameList.Add(instance);
 				}
 			}
 		}
 
-//			{
-//				"CommercialLow": [{
-//					"optional": false,
-//					"nameList": [
-//					    "Restaurant"
-//					    ]
-//				    }],
-//				"CommercialHigh": [{
-//					"optional": false,
-//					"nameList": [
-//					    "Cafe"
-//					    ]
-//				    }]
-//			}
+		public NamePart(Dictionary<string, object> obj) {
+			DebugOutputPanel.AddMessage(ColossalFramework.Plugins.PluginManager.MessageType.Message, "New NamePart");
+			if (obj.ContainsKey("optional")) {
+				isOptional = (bool) obj["optional"];
+			} else {
+				isOptional = false;
+			}
+			
+			if(obj.ContainsKey("nameList")) {
+				nameList = obj["nameList"] as List<string>;
+			}
+		}
 	}
+	//			{
+	//				"CommercialLow": [{
+	//					"optional": false,
+	//					"nameList": [
+	//					    "Restaurant"
+	//					    ]
+	//				    }],
+	//				"CommercialHigh": [{
+	//					"optional": false,
+	//					"nameList": [
+	//					    "Cafe"
+	//					    ]
+	//				    }]
+	//			}
 }
 
