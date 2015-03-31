@@ -27,55 +27,73 @@ namespace WufireNameGenerator
 			DebugOutputPanel.AddMessage(ColossalFramework.Plugins.PluginManager.MessageType.Message, "buildingNames dictionary size: " + buildingNames.Count);
 		}
 
+		private string _stringFromDefaultFile(string resourceName) {
+			string fileResource = "";
+			if (resourceName == WufireNameGenerator.CommercialNameFile) {
+				fileResource = "WufireNameGenerator.DefaultCommercialNames.json";
+			} else if (resourceName == WufireNameGenerator.IndustryNameFile) {
+				fileResource = "WufireNameGenerator.DefaultIndustryNames.json";
+			} else if (resourceName == WufireNameGenerator.OfficeNameFile) {
+				fileResource = "WufireNameGenerator.DefaultOfficeNames.json";
+			}
+			Assembly _assembly;
+			StreamReader _textStreamReader;
+			string defaultJson = null;
+			try
+			{
+				DebugOutputPanel.AddMessage(ColossalFramework.Plugins.PluginManager.MessageType.Message, "Trying to write file");
+				_assembly = Assembly.GetExecutingAssembly();
+				_textStreamReader = new StreamReader(_assembly.GetManifestResourceStream(fileResource));//"WufireNameGenerator.DefaultCommercialNames.json"));
+				defaultJson = _textStreamReader.ReadToEnd();
+			}
+			catch
+			{
+				//					MessageBox.Show("Error accessing resources!");
+			}
+
+			return defaultJson;
+		}
+
 		private void _readNamesFromFile() {
 
-			if ( ! FileUtils.Exists(WufireNameGenerator.BusinessNameFile)) {
-				DebugOutputPanel.AddMessage(ColossalFramework.Plugins.PluginManager.MessageType.Message, "Name file not found");
-				Assembly _assembly;
-				StreamReader _textStreamReader;
-				try
-				{
-					DebugOutputPanel.AddMessage(ColossalFramework.Plugins.PluginManager.MessageType.Message, "Trying to write file");
-					_assembly = Assembly.GetExecutingAssembly();
-					_textStreamReader = new StreamReader(_assembly.GetManifestResourceStream("WufireNameGenerator.DefaultBusinessNames.json"));
-					System.IO.File.WriteAllText(WufireNameGenerator.BusinessNameFile, _textStreamReader.ReadToEnd());
-				}
-				catch
-				{
-//					MessageBox.Show("Error accessing resources!");
-				}
-			}
-
+			List<string> filesToCheck = new List<string>{WufireNameGenerator.CommercialNameFile, WufireNameGenerator.OfficeNameFile, WufireNameGenerator.IndustryNameFile};
 			buildingNames = new Dictionary<string, List<NamePart>>();
-			DebugOutputPanel.AddMessage(ColossalFramework.Plugins.PluginManager.MessageType.Message, "Reading from file");
 
-			string fileText = System.IO.File.ReadAllText(WufireNameGenerator.BusinessNameFile);
-			object obj = ColossalFramework.HTTP.JSON.JsonDecode(fileText);
-
-			if (obj != null) {
-				DebugOutputPanel.AddMessage(ColossalFramework.Plugins.PluginManager.MessageType.Message, "obj not null");
-			}
-			Hashtable dictionary = (Hashtable) obj;
-
-			DebugOutputPanel.AddMessage(ColossalFramework.Plugins.PluginManager.MessageType.Message, "dictionary size? " + dictionary.Count);
-
-			foreach(string subServiceKey in dictionary.Keys) {
-				DebugOutputPanel.AddMessage(ColossalFramework.Plugins.PluginManager.MessageType.Message, "Got subServiceKey: " + subServiceKey);
-				ArrayList subObj = (ArrayList)dictionary[subServiceKey];
-				// ie obj[CommercialLow]
-				List<NamePart> newPartList = new List<NamePart>();
-				foreach(Hashtable d in subObj) {
-					DebugOutputPanel.AddMessage(ColossalFramework.Plugins.PluginManager.MessageType.Message, "Got NamePart");
-					NamePart n = new NamePart(d);
-					newPartList.Add(n);
+			foreach (string file in filesToCheck) {
+				if ( ! FileUtils.Exists(file)) {
+					DebugOutputPanel.AddMessage(ColossalFramework.Plugins.PluginManager.MessageType.Message, "Name file not found. Writing new name file to " + file);
+					string defaultText = _stringFromDefaultFile(file);
+					System.IO.File.WriteAllText(file, defaultText);
 				}
-				buildingNames.Add(subServiceKey, newPartList);
+				object obj = null;
+				try {
+					string fileText = System.IO.File.ReadAllText(file);
+					obj = ColossalFramework.HTTP.JSON.JsonDecode(fileText);
+				} catch {
+					// Error - Load default name file
+					DebugOutputPanel.AddMessage(ColossalFramework.Plugins.PluginManager.MessageType.Error, "Error parsing name file. Loading default names.");
+					string fileText = _stringFromDefaultFile(file);
+					obj = ColossalFramework.HTTP.JSON.JsonDecode(fileText);
+				}
+				if (obj != null) {
+					Hashtable dictionary = (Hashtable) obj;
+					foreach(string subServiceKey in dictionary.Keys) {
+						ArrayList subObj = (ArrayList)dictionary[subServiceKey];
+						// ie obj[CommercialLow]
+						List<NamePart> newPartList = new List<NamePart>();
+						foreach(Hashtable d in subObj) {
+							NamePart n = new NamePart(d);
+							newPartList.Add(n);
+						}
+						buildingNames.Add(subServiceKey, newPartList);
+					}
+				}
 			}
 		}
 
-		public List<NamePart> BuildingNameDataForSubService(ItemClass.SubService requestSubService) {
-			if (buildingNames.ContainsKey(requestSubService.ToString())) {
-				return buildingNames[requestSubService.ToString()];
+		public List<NamePart> BuildingNameDataForSubService(string requestSubService) {
+			if (buildingNames.ContainsKey(requestSubService)) {
+				return buildingNames[requestSubService];
 			}
 			return null;
 		}
@@ -85,7 +103,6 @@ namespace WufireNameGenerator
 		public List<string> nameList;
 
 		public NamePart(Hashtable ht) {
-			DebugOutputPanel.AddMessage(ColossalFramework.Plugins.PluginManager.MessageType.Message, "New NamePart");
 			if (ht.ContainsKey("optional")) {
 				isOptional = (bool) ht["optional"];
 			} else {
@@ -102,7 +119,6 @@ namespace WufireNameGenerator
 		}
 
 		public NamePart(Dictionary<string, object> obj) {
-			DebugOutputPanel.AddMessage(ColossalFramework.Plugins.PluginManager.MessageType.Message, "New NamePart");
 			if (obj.ContainsKey("optional")) {
 				isOptional = (bool) obj["optional"];
 			} else {
@@ -114,19 +130,5 @@ namespace WufireNameGenerator
 			}
 		}
 	}
-	//			{
-	//				"CommercialLow": [{
-	//					"optional": false,
-	//					"nameList": [
-	//					    "Restaurant"
-	//					    ]
-	//				    }],
-	//				"CommercialHigh": [{
-	//					"optional": false,
-	//					"nameList": [
-	//					    "Cafe"
-	//					    ]
-	//				    }]
-	//			}
 }
 

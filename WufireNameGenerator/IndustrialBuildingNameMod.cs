@@ -18,6 +18,23 @@ namespace WufireNameGenerator
 		//
 		// Methods
 		//
+
+		public override string GenerateName (ushort buildingID, InstanceID caller)
+		{
+			if (this.m_info.m_prefabDataIndex == -1)
+			{
+				return null;
+			}
+			Randomizer randomizer = new Randomizer ((int)buildingID);
+			string key = PrefabCollection<BuildingInfo>.PrefabName ((uint)this.m_info.m_prefabDataIndex);
+			uint num = Locale.CountUnchecked ("BUILDING_NAME", key);
+			if (num != 0u)
+			{
+				return Locale.Get ("BUILDING_NAME", key, randomizer.Int32 (num));
+			}
+			return BuildingNameGenerator.GenerateName(this.m_info.m_class.m_subService, randomizer);
+		}
+		/*
 		public override string GenerateName (ushort buildingID, InstanceID caller)
 		{
 			string result;
@@ -398,6 +415,7 @@ namespace WufireNameGenerator
 			}
 			return result;
 		}
+		*/
 	}
 }
 

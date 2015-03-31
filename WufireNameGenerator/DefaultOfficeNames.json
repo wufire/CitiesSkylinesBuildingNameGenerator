@@ -1,0 +1,23 @@
+{
+  "Office": [{
+    "optional": false,
+    "nameList": [
+      "The"
+    ]
+  }, {
+    "optional": true,
+    "nameList": [
+      "Fine"
+    ]
+  }, {
+    "optional": false,
+    "nameList": [
+      "Accoutrement"
+    ]
+  }, {
+    "optional": false,
+    "nameList": [
+      "Center"
+    ]
+  }]
+}
