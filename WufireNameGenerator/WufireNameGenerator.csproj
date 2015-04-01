@@ -58,13 +58,13 @@
   <ItemGroup>
     <Compile Include="WufireNameGenerator.cs" />
     <Compile Include="LoadingExtension.cs" />
-    <Compile Include="OfficeBuildingNameMod.cs" />
-    <Compile Include="IndustrialBuildingNameMod.cs" />
-    <Compile Include="CommercialBuildingNameMod.cs" />
     <Compile Include="BuildingNameData.cs" />
     <Compile Include="BuildingNameGenerator.cs">
       <Gettext-ScanForTranslations>False</Gettext-ScanForTranslations>
     </Compile>
+    <Compile Include="CommercialBuildingAIMod.cs" />
+    <Compile Include="OfficeBuildingAIMod.cs" />
+    <Compile Include="IndustrialBuildingAIMod.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DefaultCommercialNames.json">
