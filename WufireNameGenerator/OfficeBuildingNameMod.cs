@@ -31,7 +31,7 @@ namespace WufireNameGenerator
 			{
 				return Locale.Get ("BUILDING_NAME", key, randomizer.Int32 (num));
 			}
-			return BuildingNameGenerator.GenerateName(this.m_info.m_class.m_subService, randomizer);
+			return BuildingNameGenerator.GenerateName(this.m_info.m_class.m_service, randomizer);
 		}
 		/*
 		public override string GenerateName (ushort buildingID, InstanceID caller)
