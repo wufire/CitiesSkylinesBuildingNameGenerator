@@ -2,248 +2,346 @@
   "IndustrialFarming": [{
     "optional": false,
     "nameList": [
-      "The",
-      "Bob's",
-      "Cheap",
-      "Chippy's",
-      "Dale's",
-      "Dirty",
-      "Easy",
-      "EZ",
-      "Fake",
-      "Fast",
-      "Edible",
-      "Jim's",
-      "Quick",
-      "Quicky",
-      "Thrifty",
-      "Willie's",
-      "Jaime's",
-      "Flannery's",
-      "Uncle Barry's",
-      "Topless",
-      "Jett's",
-      "Bobo's",
-      "Cheap and",
-      "Chippy's",
-      "Pepper's"
+		"Hershel's",
+		"The",
+		"Ned's",
+		"Luke's",
+		"Macdonald's",
+		"Maggie's",
+		"Pleasantly",
+		"Scarecrow's",
+		"Dwight's",
+		"Patricia's",
+		"Porky's",
+		"Foxwood's",
+		"Uncle Henry's",
+		"Ruth's"
     ]
   }, {
     "optional": true,
     "nameList": [
-      "Trusty",
-      "Quality",
-      "Dope",
-      "Awesome",
-      "Seedy",
-      "Baller",
-      "Freaky"
+      "Delightful",
+"Free-Range",
+"Beefy",
+"Hardy",
+"Nutritional",
+"Healthy",
+"Digestible",
+"Sustainable",
+"Delicious",
+"Delectable",
+"Tasty",
+"Divine",
+"Spooky",
+"Scrumptious"
     ]
   }, {
     "optional": false,
     "nameList": [
-      "Antiques",
-      "Book",
-      "Box",
-      "Clothing",
-      "Convenience",
-      "Fish Stick",
-      "Food",
-      "Grocery",
-      "Mattress",
-      "Shoe",
-      "Stuff",
-      "Things",
-      "Underwear",
-      "Video",
-      "Waffle",
-      "Animal",
-      "Bridal Wear",
-      "Clothing",
-      "Asian",
-      "Umbrella",
-      "Mattress",
-      "Video",
-      "Recycled Food",
-      "Fish Stick"
+      "Cattle",
+"Livestock",
+"Bovine",
+"Meat",
+"Vegetable",
+"Wheat",
+"Fish",
+"Potato",
+"Chicken",
+"Poultry",
+"Food",
+"Swine",
+"Beast",
+"Lamb"
     ]
   }, {
     "optional": false,
     "nameList": [
-      "Barn",
-      "Center",
-      "House",
-      "Market",
-      "Outlet",
-      "Place",
-      "Repair",
-      "Sales",
-      "Shack",
-      "Shop",
-      "Shoppe",
-      "Spot",
-      "Store",
-      "Warehouse",
-      "Store",
-      "Marketplace",
-      "Department Store",
-      "Warehouse",
-      "Thrift Shop",
-      "Games",
-      "Cafe",
-      "Restaurant"
+"Farm",
+"Pastures",
+"Meadow",
+"Plains",
+"Estate",
+"Harvesters",
+"Alliance",
+"Inc.",
+"Friends",
+"Family",
+"Cooperative",
+"Society",
+"Range",
+"Company"
     ]
   }],
   "IndustrialForestry": [{
     "optional": false,
     "nameList": [
-      "The",
-      "Big",
-      "Classy",
-      "Colossal",
-      "Fine",
-      "Fancy",
-      "Giant",
-      "Giga",
-      "Golden",
-      "Mega",
-      "Modern",
-      "Neptune",
-      "Quality",
-      "Orwell's",
-      "Sterling",
-      "Superficial",
-      "Trusty",
-      "Worthy",
-      "Chauncey's",
-      "Geraldo's",
-      "Parker's",
-      "Pretty",
-      "Leandro's",
-      "Pico's"
+"Oak's",
+"Bunyan's",
+"Linden's",
+"Maple's",
+"The ",
+"Theresa Green's",
+"Willow's",
+"Woody's",
+"Fairly",
+"Palmer's",
+"Big Joe's"
     ]
   }, {
     "optional": true,
     "nameList": [
-      "Fine",
-      "Fancy",
-      "Himalayan",
-      "Brilliant",
-      "Marvelous",
-      "Worthy"
+"Trusty",
+"Worthy",
+"Excellent",
+"Good",
+"Quality",
+"Impressive",
+"Decent",
+"Awesome",
+"Majestic",
+"Adequate",
+"Fine"
     ]
   }, {
     "optional": false,
     "nameList": [
-      "Accoutrement",
-      "Art",
-      "Bridal",
-      "Camera",
-      "Caviar",
-      "Cheese",
-      "Clothing",
-      "Computer",
-      "Electronics",
-      "Lingerie",
-      "Media",
-      "Rubber Duck",
-      "Shopping",
-      "Stuff",
-      "Things",
-      "Wine",
-      "Animal",
-      "Antique",
-      "Wine",
-      "Asian",
-      "Mattress",
-      "Educational Skeleton",
-      "Fish Stick"
+"Grove",
+"Timber",
+"Forest",
+"Wood",
+"Woodland",
+"Jungle",
+"Plantation",
+"Plank",
+"Log",
+"Furniture",
+"Lumber"
     ]
   }, {
     "optional": false,
     "nameList": [
-      "Center",
-      "Depot",
-      "Emporium",
-      "Enterprise",
-      "Gallery",
-      "Mall",
-      "Market",
-      "Sales",
-      "Shop",
-      "Shoppe",
-      "Store",
-      "Supermarket",
-      "Superstore",
-      "Venue",
-      "Boutique",
-      "Department Store",
-      "Enterprise",
-      "Games",
-      "Cafe"
+"Family",
+"Choppers",
+"Mill",
+"Alliance",
+"Cooperative",
+"Union",
+"Alliance",
+"Association",
+"World",
+"Organisation",
+"Friends"
     ]
   }],
   "IndustrialGeneric": [{
     "optional": false,
     "nameList": [
-      "The"
+"Pepper's",
+"Norton's",
+"Himalayan",
+"Fairly",
+"The",
+"Kendal's",
+"Jett's",
+"Pretty",
+"Uncle Henry's",
+"Skyler's",
+"Leandro's",
+"Bobo's",
+"Cheapy's",
+"Chippy's"
     ]
   }, {
     "optional": true,
     "nameList": [
-      "Fine"
+"Trusty",
+"Worthy",
+"Fake",
+"Good",
+"Quality",
+"Fun",
+"Robot",
+"Awesome",
+"Majestic",
+"Toy",
+"Fine",
+"Cool",
+"Plastic",
+"Hi-Tech"
     ]
   }, {
     "optional": false,
     "nameList": [
-      "Accoutrement"
+"Paper",
+"Clothing",
+"Gong",
+"Umbrella",
+"Tugboat",
+"Cupboard",
+"Fish",
+"Sponge",
+"Radio",
+"Corkscrew",
+"Quilt",
+"Cello",
+"Fedora",
+"Kayak"
     ]
   }, {
     "optional": false,
     "nameList": [
-      "Center"
+"Factory",
+"Supplies",
+"Corporation",
+"Manufactory",
+"Warehouse",
+"Mill",
+"Foundry",
+"Inc.",
+"Sweatshop",
+"Industries",
+"Depot",
+"Producers",
+"Makers",
+"Company"
     ]
   }],
   "IndustrialOil": [{
     "optional": false,
     "nameList": [
-      "The"
+"Plainview's",
+"Midnight",
+"Jimmy's",
+"Sustainable",
+"The",
+"Cranker's",
+"Tabitha's",
+"Ominous",
+"Starburst",
+"Prospector",
+"Greasy",
+"Slick Rick's",
+"Rio Clinko"
     ]
   }, {
     "optional": true,
     "nameList": [
-      "Fine"
+"Dynamic",
+"Black Gold",
+"Oils and ",
+"Efficient",
+"Friendly",
+"Helpful",
+"Classy",
+"Refined",
+"Precise",
+"Capable",
+"Productive",
+"Systematic",
+"Competent"
     ]
   }, {
     "optional": false,
     "nameList": [
-      "Accoutrement"
+"Pumpjack",
+"Ashphalt",
+"Processing",
+"Fuel",
+"Gasoline",
+"Kerosene",
+"Lubricants",
+"Tar",
+"Petrol",
+"Propellant",
+"Gas",
+"Combustion",
+"Drilling"
     ]
   }, {
     "optional": false,
     "nameList": [
-      "Center"
+"Inc.",
+"Industries",
+"Corporation ",
+"Syndicate",
+"Enterprise",
+"Refinery",
+"Association",
+"Multinational",
+"Company",
+"Organisation",
+"Congolomorate",
+"League",
+"Alliance"
     ]
   }],
   "IndustrialOre": [{
     "optional": false,
     "nameList": [
-      "The"
+"Ceritfied",
+"Barkley's",
+"Ballarat",
+"The",
+"Family",
+"Doug's",
+"Grandma's",
+"Eureka",
+"Klondike's",
+"Plinkett's",
+"Walter's",
+"Californian",
+"Crystal's"
     ]
   }, {
     "optional": true,
     "nameList": [
-      "Fine"
+"Earth",
+"Gold",
+"Bedrock",
+"Boulder",
+"Gravel",
+"Titanium",
+"Aluminium",
+"Silver",
+"Copper",
+"Chromium",
+"Platinum",
+"Uranium",
+"Iron"
     ]
   }, {
     "optional": false,
     "nameList": [
-      "Accoutrement"
+"Movers",
+"Digger",
+"Mines",
+"Quarry",
+"Business",
+"Miner",
+"Deposit",
+"Reserves",
+"Trade",
+"Collector",
+"Merchant",
+"Holdings",
+"Fist"
     ]
   }, {
     "optional": false,
     "nameList": [
-      "Center"
+"Inc.",
+"Industries",
+"Corproration ",
+"Syndicate",
+"Enterprise",
+"Union",
+"Association",
+"Multinational",
+"Company",
+"Organisation",
+"Congolomorate",
+"League",
+"Alliance"
     ]
   }]
 }

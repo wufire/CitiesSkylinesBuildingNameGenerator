@@ -2,22 +2,70 @@
   "Office": [{
     "optional": false,
     "nameList": [
-      "The"
+"Flipper's",
+"The",
+"Lightning Fast",
+"Fickle Heart",
+"Remarkably",
+"Atilla's",
+"Sid's",
+"Peacock and Co.",
+"Lincoln's",
+"Frankie's",
+"Cheap and",
+"Ace's",
+"Crackerjack's"
     ]
   }, {
     "optional": true,
     "nameList": [
-      "Fine"
+"Quaint",
+"Multinational",
+"Efficient",
+"Marvelous",
+"Pleasant",
+"Competent",
+"Digital ",
+"Licensed",
+"Skilled",
+"Professional ",
+"Frenzied",
+"Slick",
+"Tactful"
     ]
   }, {
     "optional": false,
     "nameList": [
-      "Accoutrement"
+"Online",
+"Accounting",
+"Rope",
+"Simulation",
+"Travel",
+"Adventure",
+"Mobile",
+"Telecommunications",
+"Cooking",
+"Mind Control",
+"Security",
+"Board",
+"Paperwork"
     ]
   }, {
     "optional": false,
     "nameList": [
-      "Center"
+"Law Firm",
+"Enterprise",
+"Company",
+"Games",
+"Alliance",
+"Corporation",
+"Conglomerate",
+"Business",
+"Solutions",
+"Services",
+"League",
+"Organisation",
+"Limited"
     ]
   }]
 }
