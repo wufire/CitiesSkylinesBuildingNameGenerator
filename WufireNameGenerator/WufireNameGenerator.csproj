@@ -65,6 +65,7 @@
     <Compile Include="CommercialBuildingAIMod.cs" />
     <Compile Include="OfficeBuildingAIMod.cs" />
     <Compile Include="IndustrialBuildingAIMod.cs" />
+    <Compile Include="ResidentialBuildingAIMod.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DefaultCommercialNames.json">
@@ -74,6 +75,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="DefaultOfficeNames.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DefaultResidentialNames.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
