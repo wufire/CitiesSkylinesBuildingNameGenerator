@@ -1,6 +1,6 @@
-Customizable Business Name Generator by wufire
+Customizable Building Name Generator by wufire
 
-New names for industrial, office, and commercial buildings. Add your own names in the mods folder!
+New names for residential, industrial, office, and commercial buildings. Add your own names in the mods folder!
 Many default names provided by reddit user /u/TPangolin
 
 [h1]Name file location[/h1]
