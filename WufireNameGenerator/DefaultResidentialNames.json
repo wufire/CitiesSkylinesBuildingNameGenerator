@@ -2,6 +2,7 @@
   "ResidentialLow": [{
     "optional": false,
     "nameList": [
+      "",
       "The"
     ]
   }, {
@@ -16,7 +17,6 @@
       "Bedford",
       "Beech",
       "Beechwood",
-      "Belmont",
       "Belmont",
       "Birch",
       "Birdsong",
@@ -54,6 +54,7 @@
       "Garland",
       "Garnet",
       "Glade",
+      "Gordon",
       "Green",
       "Grove",
       "Hamilton",
@@ -61,11 +62,9 @@
       "Heather",
       "Hemlock",
       "Hickory",
-      "Hickory",
       "High",
       "Highland",
       "Hillside",
-      "Holly",
       "Holly",
       "Ivy",
       "Kent",
@@ -76,6 +75,7 @@
       "Laurel",
       "Lilac",
       "Linden",
+      "Lucas",
       "Lynch",
       "Madison",
       "Magnolia",
@@ -86,7 +86,6 @@
       "Mill",
       "Moore",
       "Mulberry",
-      "Myrtle",
       "Myrtle",
       "Oak",
       "Olive",
@@ -102,13 +101,13 @@
       "Robin",
       "Rosewood",
       "Sheffield",
+      "Simpson",
       "Spring",
       "Spruce",
       "Sterling",
       "Strawberry",
       "Summit",
       "Sunnyside",
-      "Sunset",
       "Sunset",
       "Sycamore",
       "Thornton",
@@ -121,12 +120,14 @@
       "Washington",
       "Willow",
       "Wood",
-      "Woodland"
+      "Woodland",
+      "Wu"
     ]
   }, {
     "optional": false,
     "nameList": [
       "Abode",
+      "Estate",
       "Family",
       "Homestead",
       "Residence"
@@ -135,6 +136,7 @@
   "ResidentialHigh": [{
     "optional": false,
     "nameList": [
+      "",
       "The"
     ]
   }, {
@@ -150,7 +152,6 @@
       "Beech",
       "Beechwood",
       "Belmont",
-      "Belmont",
       "Birch",
       "Birdsong",
       "Briar Rose",
@@ -187,6 +188,7 @@
       "Garland",
       "Garnet",
       "Glade",
+      "Gordon",
       "Green",
       "Grove",
       "Hamilton",
@@ -194,20 +196,20 @@
       "Heather",
       "Hemlock",
       "Hickory",
-      "Hickory",
       "High",
       "Highland",
       "Hillside",
-      "Holly",
       "Holly",
       "Ivy",
       "Kent",
       "King",
       "Lafayette",
       "Lake",
+      "Lars",
       "Laurel",
       "Lilac",
       "Linden",
+      "Lucas",
       "Lynch",
       "Madison",
       "Magnolia",
@@ -218,7 +220,6 @@
       "Mill",
       "Moore",
       "Mulberry",
-      "Myrtle",
       "Myrtle",
       "Oak",
       "Olive",
@@ -234,13 +235,13 @@
       "Robin",
       "Rosewood",
       "Sheffield",
+      "Simpson",
       "Spring",
       "Spruce",
       "Sterling",
       "Strawberry",
       "Summit",
       "Sunnyside",
-      "Sunset",
       "Sunset",
       "Sycamore",
       "Thornton",
@@ -253,7 +254,8 @@
       "Washington",
       "Willow",
       "Wood",
-      "Woodland"
+      "Woodland",
+      "Wu"
     ]
   }, {
     "optional": false,
@@ -261,6 +263,7 @@
       "Abode",
       "Apartments",
       "Homestead",
+      "Manor",
       "Residence",
       "Tower"
     ]
