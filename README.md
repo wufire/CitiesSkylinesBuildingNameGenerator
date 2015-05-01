@@ -20,7 +20,10 @@ If you have trouble finding the Library folder do the following:
 * Then the rest of the path should be easy to find (I hope!)
 
 ###Linux###
-(Any Linux users want to help me out here? :D)
+```
+~/.local/share/Colossal Order/Cities_Skylines/Addons/Mods/WufireNameGenerator
+```
+(Thanks to trideceth12)
 
 ##Detailed instructions##
 * First activate the mod from the content manager, then start/load a city.
