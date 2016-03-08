@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>WufireNameGenerator</RootNamespace>
     <AssemblyName>WufireNameGenerator</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <UseMSBuildEngine>False</UseMSBuildEngine>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>True</DebugSymbols>
@@ -23,10 +23,11 @@
     <ConsolePause>False</ConsolePause>
     <CustomCommands>
       <CustomCommands>
-        <Command type="AfterBuild" command="cp -f &quot;bin/${ProjectConfigName}/${SolutionName}.dll&quot; &quot;/Users/awu/Library/Application Support/Colossal Order/Cities_Skylines/Addons/Mods/${SolutionName}/&quot;" workingdir="${ProjectDir}" externalConsole="True" />
-        <Command type="BeforeBuild" command="rm -f &quot;/Users/awu/Library/Application Support/Colossal Order/Cities_Skylines/Addons/Mods/${SolutionName}/${SolutionName}.dll&quot;" workingdir="${ProjectDir}" externalConsole="True" />
+        <Command type="AfterBuild" command="cp -f &quot;bin/${ProjectConfigName}/${SolutionName}.dll&quot; &quot;/Users/awu/Library/Application Support/Colossal Order/Cities_Skylines/Addons/Mods/${SolutionName}/&quot;" workingdir="${ProjectDir}" />
+        <Command type="BeforeBuild" command="rm -f &quot;/Users/awu/Library/Application Support/Colossal Order/Cities_Skylines/Addons/Mods/${SolutionName}/${SolutionName}.dll&quot;" workingdir="${ProjectDir}" />
       </CustomCommands>
     </CustomCommands>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>none</DebugType>
@@ -36,6 +37,7 @@
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
     <ConsolePause>False</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -51,9 +53,6 @@
     <Reference Include="UnityEngine">
       <HintPath>..\..\..\..\Library\Application Support\Steam\SteamApps\common\Cities_Skylines\Cities.app\Contents\Resources\Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
-    <Reference Include="mscorlib">
-      <HintPath>..\..\..\..\Library\Application Support\Steam\SteamApps\common\Cities_Skylines\Cities.app\Contents\Resources\Data\Managed\mscorlib.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="WufireNameGenerator.cs" />
@@ -66,6 +65,7 @@
     <Compile Include="OfficeBuildingAIMod.cs" />
     <Compile Include="IndustrialBuildingAIMod.cs" />
     <Compile Include="ResidentialBuildingAIMod.cs" />
+    <Compile Include="CitiesSkylinesDebugInformation\RedirectionHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DefaultCommercialNames.json">
