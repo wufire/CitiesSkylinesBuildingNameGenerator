@@ -36,3 +36,5 @@ If you have trouble finding the Library folder do the following:
 * If multiple lists are provided, the generator will add one word from each list in order.
   * If a list is marked 'optional', it has a 50% chance of being added.
   * If adding the word will be larger than the maximum name limit (32 characters), the word is ignored.
+
+  Now using detour functions described here: https://github.com/sschoener/cities-skylines-detour
